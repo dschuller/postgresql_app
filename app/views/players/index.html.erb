@@ -1,0 +1,26 @@
+<h1>Spielerliste</h1>
+	<%= link_to "Neuer Spieler", new_player_path %> | <%= link_to "Spielplan", root_path %>
+	<br /><br />
+<table class="list">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Telefon</th>
+    <th>Mobil</th>
+    <th>Admin</th>
+    <th>Gast</th>
+    <th></th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%= player.firstname + ' ' + player.lastname %></td>
+    <td><%= player.email %></td>
+    <td><%= player.phone %></td>
+    <td><%= player.mobile %></td>
+    <td><%= player.is_admin ? 'ja' : 'nein' %></td>
+    <td><%= player.is_guestplayer ? 'ja' : 'nein' %></td>
+    <td><%= link_to "L&ouml;schen".html_safe, player, :confirm => 'Are you sure?', :method => :delete %> | <%= link_to 'Bearbeiten', edit_player_path(player) %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,21 @@
+<h1>Status bearbeiten</h1>
+
+<h3><%= @event.player.name %> am <%= @event.matchdate.date.strftime("%d.%m.%Y") %></h3>
+<%= form_tag(:action => :status_update, :id => @event.id, :method => :post) do %>
+  
+  <div class="field">
+    <%= label_tag :status, 'Status' %>
+    <%= select_tag :status, options_for_select([['Spielt', 1], ['Ersatz', 2], ['Verhindert', 3]], @status.to_i) %>
+  </div>
+  <div class="field">
+    <%= hidden_field :event_id, @event.id %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= submit_tag 'Speichern' %>
+    <%= submit_tag 'Löschen' %>
+  </div>
+<% end %>
+<br />
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', events_path %>

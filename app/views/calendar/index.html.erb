@@ -1,0 +1,12 @@
+<!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
+<%= stylesheet_link_tag "event_calendar" %>
+
+<h1>Spielplan</h1>
+<%= link_to "Neuer Eintrag", new_event_path %> | <%= link_to "Spieler verwalten", players_path %>
+<br /><br />
+<hr />
+<br />
+<div id="cal">
+<%= raw(event_calendar) %>
+</div>
+<br />

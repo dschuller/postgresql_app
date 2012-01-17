@@ -1,0 +1,49 @@
+<%= form_for @player do |f| %>
+  <% if @player.errors.any? %>
+    <div class="error_messages">
+      <h2>Fehlerhafte Daten</h2>
+      <ul>
+        <% for message in @player.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :firstname, 'Vorname' %>
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname, 'Nachname' %>
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, 'Festnetz' %>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile, 'Handy' %>
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Passwort" %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+  	<%= f.label :password_confirmation, "Passwort-Wiederholung" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :is_admin, 'Admin' %>
+    <%= f.check_box :is_admin %>
+  </div>
+    <div class="field">
+    <%= f.label :is_guestplayer, 'Gastspieler' %>
+    <%= f.check_box :is_guestplayer %>
+  </div>
+  <div class="actions"><%= f.submit "Speichern" %></div>
+<% end %>

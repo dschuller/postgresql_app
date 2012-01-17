@@ -1,0 +1,21 @@
+<%= form_tag(:controller => 'events', :action => 'create', :method => 'post') do %>
+  
+  <div class="field">
+    <%= label_tag :picker, 'Datum' %>
+    <%= text_field_tag :picker, @next_sunday %>
+  </div>
+  
+  <div class="field">
+    <%= label_tag :player_id, 'Spieler' %>
+    <%= select_tag :player_id, options_from_collection_for_select(@players, :id, :name)  %>
+  </div>
+  
+  <div class="field">
+    <%= label_tag :status, 'Status' %>
+    <%= select_tag :status, options_for_select([['Spielt', 1], ['Ersatz', 2], ['Verhindert']],1) %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= submit_tag 'Speichern' %>
+  </div>
+<% end %>
